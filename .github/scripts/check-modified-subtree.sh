@@ -28,8 +28,12 @@ files=$(
 
 template="
     > [!WARNING]
-    > Files from **[{project}]({repository}) </b> have been modified!
-    > ➞ Changes should only be done in it's repository!
+    > Files from **[{project}]({repository})** have been modified!
+    > ➞ Changes should only be made in it's repository
+    >
+    > **Files:**
+    {files}
+    >
 "
 
 #   Trim leading space for Markdown compatibility
@@ -49,9 +53,12 @@ function check {
     
     set +o errexit
 
-    grep                        \
+    local files=$(
+        echo "$files" | grep    \
         --perl-regexp "$path"   \
-        --silent <<< "$files"
+    )
+
+    files="$(printf -- '- `%s`\n' "$files")"
 
     #   Ignore if nothing matched
 
@@ -66,8 +73,9 @@ function check {
 
     local info="$template"
     
-    info=${info//\{project\}/$name}
     info=${info//\{repository\}/$repo}
+    info=${info//\{project\}/$name}
+    info=${info//\{files\}/$files}
 
     echo "$info" >> $GITHUB_STEP_SUMMARY
 

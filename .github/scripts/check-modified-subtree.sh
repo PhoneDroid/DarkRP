@@ -28,10 +28,9 @@ files=$(
 
 template="
     > [!WARNING]
-    > Files from **[{project}]({repository})** have been modified!
+    > Files from **[{project}]({repository})** have been modified!  
     > ➞ Changes should only be made in it's repository
-    >
-    > **Files:**
+    > 
     {files}
     >
 "
@@ -48,6 +47,7 @@ function check {
     local name="$1"
     local path="^$2"
     local repo="$3"
+
     
     #   Check if any matching paths were modified
     
@@ -58,7 +58,6 @@ function check {
         --perl-regexp "$path"   \
     )
 
-    files="$(printf -- '- `%s`\n' "$files")"
 
     #   Ignore if nothing matched
 
@@ -69,9 +68,12 @@ function check {
 
     set -o errexit
 
+
     #   Append info to GitHub's summary
 
     local info="$template"
+
+    files="$(printf -- '> - `%s`  \n' "$files")"
     
     info=${info//\{repository\}/$repo}
     info=${info//\{project\}/$name}

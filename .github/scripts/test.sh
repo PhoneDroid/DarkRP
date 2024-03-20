@@ -21,4 +21,21 @@ echo "
 |:-|:-
 " >> $GITHUB_STEP_SUMMARY
 
+
+
+GITHUB_STEP_SUMMARY+="$( echo "
+<table>
+    <tr>
+        <td>
+            :x: Files from <b>FSpectate</b> should be edited in it's repository!          
+        </td>
+        <td>
+            <a href = https://github.com/fptje/FSpectate>
+                <kbd> <br> Repository <br> </kbd>
+            </a>
+        </td>
+    </tr>
+</table>
+" | sed 's/^[[:space:]]*//')
+
 exit 1

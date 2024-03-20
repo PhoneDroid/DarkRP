@@ -36,6 +36,6 @@ GITHUB_STEP_SUMMARY+="$( echo "
         </td>
     </tr>
 </table>
-" | sed 's/^[[:space:]]*//')
+" | sed 's/^[[:space:]]*//')"
 
 exit 1

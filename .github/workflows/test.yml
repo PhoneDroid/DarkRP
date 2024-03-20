@@ -6,5 +6,13 @@ on:
 
 jobs:
     test:
-      steps:
-        - run: ./.github/scripts/test.sh
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  # Make sure there is access to the master branch
+                  fetch-depth: 0
+                  clean: false
+                    
+
+            - run: ./.github/scripts/test.sh

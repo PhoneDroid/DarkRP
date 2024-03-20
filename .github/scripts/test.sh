@@ -23,7 +23,7 @@ echo "
 
 
 
-GITHUB_STEP_SUMMARY+="$( echo "
+echo "
 <table>
     <tr>
         <td>
@@ -36,6 +36,6 @@ GITHUB_STEP_SUMMARY+="$( echo "
         </td>
     </tr>
 </table>
-" | sed 's/^[[:space:]]*//')"
+" | sed 's/^[[:space:]]*//' >> $GITHUB_STEP_SUMMARY
 
 exit 1

@@ -5,7 +5,7 @@ for third party addons.
 
 Follows the specification on this page:
 https://docs.google.com/document/d/1QIRVcAgZfAYf1aBl_dNV_ewR6P25wze2KmUVzlbFgMI
-
+--Change
 Structures:
     CAMI_USERGROUP, defines the charactaristics of a usergroup:
     {

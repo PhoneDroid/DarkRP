@@ -3,7 +3,7 @@ Functional library
 
 by FPtje Atheos
 ---------------------------------------------------------------------------*/
-
+--Change
 /*---------------------------------------------------------------------------
 Function currying
     Take a function with n parameters.

@@ -1,6 +1,6 @@
 --[[
     MySQLite - Abstraction mechanism for SQLite and MySQL
-
+--Change
     Why use this?
         - Easy to use interface for MySQL
         - No need to modify code when switching between SQLite and MySQL

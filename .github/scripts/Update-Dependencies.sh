@@ -8,7 +8,7 @@ echo '>>> Updating dependencies.'
 
 set -o errexit # Exit for any error
 
-dry=false
+dry=true
 
 
 source "$( dirname "$0" )/Update-Dependency.sh"
